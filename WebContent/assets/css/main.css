@@ -6,8 +6,8 @@
 #site-introduction h2		   		{ float:left; width:320px; margin:50px 0 0 20px }
 #site-introduction p					{ clear:both; font-size:1.1em; padding:20px; line-height:1.5em }
 
-.header h1 a:hover { color:#79B30B; text-decoration:none  }
-.header h1 a:link { color:#79B30B; text-decoration:none  }
-.header h1 a:visited { color:#79B30B; text-decoration:none  }
-.header h1 a:active { color:#79B30B; text-decoration:none  }
+#header h1 a:hover { color:#79B30B; text-decoration:none  }
+#header h1 a:link { color:#79B30B; text-decoration:none  }
+#header h1 a:visited { color:#79B30B; text-decoration:none  }
+#header h1 a:active { color:#79B30B; text-decoration:none  }
 	
