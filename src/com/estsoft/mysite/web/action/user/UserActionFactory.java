@@ -10,6 +10,8 @@ public class UserActionFactory extends ActionFactory {
 		Action action = null;
 		if( "joinform".equals( actionName ) ) {
 			action = new JoinFormAction();	
+		} else if( "join".equals( actionName ) ) { 
+			action = new JoinAction();
 		} else {
 			action = new DefaultAction();
 		}
