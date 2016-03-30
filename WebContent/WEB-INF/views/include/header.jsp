@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 		<div id="header">
-			<h1>MySite</h1>
+			<h1><a href="/mysite/main">MySite</a></h1>
 			<ul>
 				<li><a href="">로그인</a><li>
 				<li><a href="">회원가입</a><li>
