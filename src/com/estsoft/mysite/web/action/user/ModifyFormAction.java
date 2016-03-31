@@ -14,13 +14,13 @@ public class ModifyFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		UserVo authUser = session.getAttribute( "");
-		
-		UserVo userVo = dao.get( userVo.getNo() );
-		
-		request.setAttribute( "UserVo", userVo);
-		WebUtil.forward(request, response, "/WEB-INF/views/user/modifyform.jsp");
+//		HttpSession session = request.getSession();
+//		UserVo authUser = session.getAttribute( "");
+//		
+//		UserVo userVo = dao.get( userVo.getNo() );
+//		
+//		request.setAttribute( "UserVo", userVo);
+//		WebUtil.forward(request, response, "/WEB-INF/views/user/modifyform.jsp");
 	}
 
 }

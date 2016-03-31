@@ -9,19 +9,4 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <!-- (1)서블릿 매핑 -->
-  <!--	
-  <servlet>
-     <servlet-name>MainServlet</servlet-name>
-	 <servlet-class>com.estsoft.mysite.servle.MainServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-     <servlet-name>MainServlet</servlet-name>
-	 <url-pattern>/main</url-pattern>
-  </servlet-mapping>
-  -->
-  <!-- (2)필터 등록 -->
-  <!-- (3)리스너 등록 -->	
- 
-  
 </web-app>
