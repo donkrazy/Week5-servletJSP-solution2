@@ -2,6 +2,7 @@ package com.estsoft.mysite.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.estsoft.db.DBConnection;
@@ -13,7 +14,62 @@ public class UserDao {
 	public UserDao( DBConnection dbConnection ) {
 		this.dbConnection = dbConnection;
 	}
+
+	public UserVo get( Long no ) {
+		return null;
+	}	
+
+	// 보안 = 인증 + 권한
+	// 인증(Auth)
+	public UserVo get( String email, String password ) {
+		return null;
+	}
+	public UserVo get( UserVo vo ) {
+		UserVo userVo = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = dbConnection.getConnection();
+			String sql = 
+	"SELECT no, name, email FROM user WHERE email=? AND passwd=password(?)"; 
+			pstmt = conn.prepareStatement( sql );
+			pstmt.setString( 1, vo.getEmail() );
+			pstmt.setString( 2, vo.getPassword() );
+
+			rs = pstmt.executeQuery();
+			if( rs.next() ) {
+				Long no = rs.getLong( 1 );
+				String name = rs.getString( 2 );
+				String email = rs.getString( 3 );
+				userVo = new UserVo();
+				userVo.setNo(no);
+				userVo.setName(name);
+				userVo.setEmail(email);
+			}
+			
+			return userVo;
+		} catch (SQLException e) {
+			System.out.println( "error:" + e );
+			return null;
+		} finally {
+			try{
+				if( rs != null ) {
+					rs.close();
+				}
+				if( pstmt != null ) {
+					pstmt.close();
+				}
+				if( conn != null ) {
+					conn.close();
+				}
+			}catch( SQLException e ) {
+				e.printStackTrace();
+			}
+		}
+	}
 	
+
 	public void insert( UserVo vo ) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
