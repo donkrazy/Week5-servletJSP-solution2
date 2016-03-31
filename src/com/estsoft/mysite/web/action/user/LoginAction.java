@@ -27,8 +27,6 @@ public class LoginAction implements Action {
 		UserDao dao = new UserDao( new MySQLWebDBConnection() ) ;
 		UserVo authUser = dao.get(vo);
 		
-		System.out.println( authUser );
-		
 		if( authUser == null ) {
 			// 비밀번호나 이메일이 틀림
 			// WebUtil.redirect(request, response, "/mysite/user?a=loginform&result=fail"); //redirect방식

@@ -14,13 +14,14 @@ public class LoginFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+/*		
 		Cookie[] cookies = request.getCookies();
 		if( cookies != null ) {
 			for( Cookie cookie : cookies ) {
 				System.out.println( cookie.getName() + ":" + cookie.getValue() );
 			}
 		}
-		
+*/		
 		
 		WebUtil.forward(request, response, "/WEB-INF/views/user/loginform.jsp");
 	}
