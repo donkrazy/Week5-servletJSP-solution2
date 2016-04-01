@@ -8,14 +8,14 @@
 <head>
 <title>mysite</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<link href="/mysite/assets/css/guestbook.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/guestbook.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div id="container">
 		<c:import url="/WEB-INF/views/include/header.jsp" />
 		<div id="content">
 			<div id="guestbook">
-				<form action="/mysite/guestbook" method="post">
+				<form action="${pageContext.request.contextPath}/guestbook" method="post">
 					<input type="hidden" name="a" value="insert">
 					<table>
 						<tr>
@@ -31,19 +31,20 @@
 					</table>
 				</form>
 				<ul>
-					<c:set var="counrt" value="${fn:length(list) }" />
-					<c:forEach items="${list }" var="vo" >
+					<c:set var="br" value="<br>" scope="page"/>
+					<c:set var="count" value="${fn:length(list) }" />
+					<c:forEach items="${list }"  var="vo" >
 						<li>
 							<table>
 								<tr>
 									<td>[${count-index }]</td>
 									<td>${vo.name }</td>
 									<td>${vo.regDate }</td>
-									<td><a href="/mysite/guestbook?a=deleteform&no=${vo.no }">삭제</a></td>
+									<td><a href="${pageContext.request.contextPath}/guestbook?a=deleteform&no=${vo.no }">삭제</a></td>
 								</tr>
 								<tr>
 									<td colspan=4>
-										${fn:replace(vo.message, newLine, "<br>") }
+										${fn:replace(vo.message, newLine, br) }
 									</td>
 								</tr>
 							</table>

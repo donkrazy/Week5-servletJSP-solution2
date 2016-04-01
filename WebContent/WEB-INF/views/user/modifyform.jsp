@@ -7,14 +7,14 @@
 <head>
 <title>mysite</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<link href="/mysite/assets/css/user.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/user.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div id="container">
 		<c:import url="/WEB-INF/views/include/header.jsp" />
 		<div id="content">
 			<div id="user">
-				<form id="join-form" name="joinForm" method="post" action="/mysite/user">
+				<form id="join-form" name="joinForm" method="post" action="${pageContext.request.contextPath}/user">
 					<input type="hidden" name="a" value="modify">
 					
 					<label class="block-label" for="name">이름</label>
