@@ -45,6 +45,6 @@ public class ModifyAction implements Action {
 		authUser.setName( name );
 		
 		// 리다이렉트
-		WebUtil.redirect( request, response, "/mysite/user?a=modifyform" );
+		WebUtil.redirect( request, response, "/mysite/user?a=modifyform&result=success" );
 	}
 }

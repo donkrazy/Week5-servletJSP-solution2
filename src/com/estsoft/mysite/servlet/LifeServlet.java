@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/life")
 public class LifeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Map map;
+	private Map map = null;
 	public void init(ServletConfig config) throws ServletException {
 		System.out.println( "LifeServlet:init() called" );
 	}

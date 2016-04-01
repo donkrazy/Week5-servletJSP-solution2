@@ -1,9 +1,8 @@
-<%@page import="com.estsoft.mysite.vo.GuestbookVo"%>
-<%@page import="java.util.List"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%
-	List<GuestbookVo> list = ( List<GuestbookVo> ) request.getAttribute( "list" ); 
-%>
+<% pageContext.setAttribute( "newLine", "\r\n"); %>
 <!doctype html>
 <html>
 <head>
@@ -13,7 +12,7 @@
 </head>
 <body>
 	<div id="container">
-		<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
+		<c:import url="/WEB-INF/views/include/header.jsp" />
 		<div id="content">
 			<div id="guestbook">
 				<form action="/mysite/guestbook" method="post">
@@ -32,35 +31,30 @@
 					</table>
 				</form>
 				<ul>
-					<%
-						int count = list.size();
-						int index = 0;
-						for( GuestbookVo vo : list ) {
-					%>				
-					<li>
-						<table>
-							<tr>
-								<td>[<%=count-index++ %>]</td>
-								<td><%=vo.getName() %></td>
-								<td><%=vo.getRegDate() %></td>
-								<td><a href="/mysite/guestbook?a=deleteform&no=<%=vo.getNo() %>">삭제</a></td>
-							</tr>
-							<tr>
-								<td colspan=4>
-									<%=vo.getMessage().replaceAll( "\r\n", "<br>" ) %>
-								</td>
-							</tr>
-						</table>
-						<br>
-					</li>
-					<%
-						}
-					%>
+					<c:set var="counrt" value="${fn:length(list) }" />
+					<c:forEach items="${list }" var="vo" >
+						<li>
+							<table>
+								<tr>
+									<td>[${count-index }]</td>
+									<td>${vo.name }</td>
+									<td>${vo.regDate }</td>
+									<td><a href="/mysite/guestbook?a=deleteform&no=${vo.no }">삭제</a></td>
+								</tr>
+								<tr>
+									<td colspan=4>
+										${fn:replace(vo.message, newLine, "<br>") }
+									</td>
+								</tr>
+							</table>
+							<br>
+						</li>
+					</c:forEach>
 				</ul>
 			</div>
 		</div>
-		<jsp:include page="/WEB-INF/views/include/navigation.jsp"></jsp:include>
-		<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+		<c:import url="/WEB-INF/views/include/navigation.jsp" />
+		<c:import url="/WEB-INF/views/include/footer.jsp" />
 	</div>
 </body>
 </html>
