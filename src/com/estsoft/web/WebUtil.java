@@ -22,4 +22,8 @@ public class WebUtil {
 		RequestDispatcher rd = request.getRequestDispatcher(  path  );
 		rd.forward( request, response );		
 	}
+	
+	public static boolean isNumeric( String value ) {
+		return value != null && value.matches( "[-+]?\\d*\\.?\\d+" );  
+	}
 }
