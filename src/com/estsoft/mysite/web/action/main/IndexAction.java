@@ -14,7 +14,6 @@ public class IndexAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-<<<<<<< HEAD
 		Cookie[] cookies = request.getCookies();
 		for( Cookie cookie : cookies ) {
 			System.out.println( cookie.getName() + ":" + cookie.getValue() );
@@ -22,10 +21,6 @@ public class IndexAction implements Action {
 		
 		Cookie cookie = new Cookie( "myCookie", "Hello World" );
 		cookie.setMaxAge( 60 * 60 * 24 * 365 );
-=======
-		Cookie cookie = new Cookie( "testCookie", "Hello World" );
-		cookie.setMaxAge( 60 * 60 * 24 * 1 );
->>>>>>> branch 'master' of https://github.com/kickscar/mysite.git
 		cookie.setPath( "/mysite/" );
 		response.addCookie( cookie );
 		
